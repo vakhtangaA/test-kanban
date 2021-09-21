@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/test-kanban/static/css/main.fe285729.chunk.css",
-    "main.js": "/test-kanban/static/js/main.b2211fef.chunk.js",
-    "main.js.map": "/test-kanban/static/js/main.b2211fef.chunk.js.map",
-    "runtime-main.js": "/test-kanban/static/js/runtime-main.a9e08776.js",
-    "runtime-main.js.map": "/test-kanban/static/js/runtime-main.a9e08776.js.map",
-    "static/js/2.568186cb.chunk.js": "/test-kanban/static/js/2.568186cb.chunk.js",
-    "static/js/2.568186cb.chunk.js.map": "/test-kanban/static/js/2.568186cb.chunk.js.map",
+    "main.js": "/test-kanban/static/js/main.e847bb4f.chunk.js",
+    "main.js.map": "/test-kanban/static/js/main.e847bb4f.chunk.js.map",
+    "runtime-main.js": "/test-kanban/static/js/runtime-main.e03fafd8.js",
+    "runtime-main.js.map": "/test-kanban/static/js/runtime-main.e03fafd8.js.map",
+    "static/js/2.e8c7d7ff.chunk.js": "/test-kanban/static/js/2.e8c7d7ff.chunk.js",
+    "static/js/2.e8c7d7ff.chunk.js.map": "/test-kanban/static/js/2.e8c7d7ff.chunk.js.map",
     "index.html": "/test-kanban/index.html",
     "static/css/main.fe285729.chunk.css.map": "/test-kanban/static/css/main.fe285729.chunk.css.map",
-    "static/js/2.568186cb.chunk.js.LICENSE.txt": "/test-kanban/static/js/2.568186cb.chunk.js.LICENSE.txt"
+    "static/js/2.e8c7d7ff.chunk.js.LICENSE.txt": "/test-kanban/static/js/2.e8c7d7ff.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a9e08776.js",
-    "static/js/2.568186cb.chunk.js",
+    "static/js/runtime-main.e03fafd8.js",
+    "static/js/2.e8c7d7ff.chunk.js",
     "static/css/main.fe285729.chunk.css",
-    "static/js/main.b2211fef.chunk.js"
+    "static/js/main.e847bb4f.chunk.js"
   ]
 }
