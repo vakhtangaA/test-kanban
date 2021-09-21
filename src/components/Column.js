@@ -28,7 +28,7 @@ const TaskList = styled.div`
   padding: 8px;
   border-radius: 6px;
   flex-grow: 1;
-  min-height: 140px;
+  min-height: 200px;
 `;
 
 function Column({ column, tasks }) {

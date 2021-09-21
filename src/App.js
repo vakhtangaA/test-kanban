@@ -8,6 +8,8 @@ import Column from "./components/Column";
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: flex-start;
+
   > div {
     width: 300px;
     margin-bottom: 1rem;
