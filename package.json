@@ -1,6 +1,6 @@
 {
   "homepage": "http://vakhtangaa.github.io/test-kanban",
-  "name": "sweeft-kanban",
+  "name": "test-kanban",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -46,3 +46,16 @@
     "gh-pages": "^3.2.3"
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
