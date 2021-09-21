@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/sweeft-kanban/static/css/main.fe285729.chunk.css",
+    "main.js": "/sweeft-kanban/static/js/main.b2211fef.chunk.js",
+    "main.js.map": "/sweeft-kanban/static/js/main.b2211fef.chunk.js.map",
+    "runtime-main.js": "/sweeft-kanban/static/js/runtime-main.dc7d7a55.js",
+    "runtime-main.js.map": "/sweeft-kanban/static/js/runtime-main.dc7d7a55.js.map",
+    "static/js/2.3bd03575.chunk.js": "/sweeft-kanban/static/js/2.3bd03575.chunk.js",
+    "static/js/2.3bd03575.chunk.js.map": "/sweeft-kanban/static/js/2.3bd03575.chunk.js.map",
+    "index.html": "/sweeft-kanban/index.html",
+    "static/css/main.fe285729.chunk.css.map": "/sweeft-kanban/static/css/main.fe285729.chunk.css.map",
+    "static/js/2.3bd03575.chunk.js.LICENSE.txt": "/sweeft-kanban/static/js/2.3bd03575.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dc7d7a55.js",
+    "static/js/2.3bd03575.chunk.js",
+    "static/css/main.fe285729.chunk.css",
+    "static/js/main.b2211fef.chunk.js"
+  ]
+}
