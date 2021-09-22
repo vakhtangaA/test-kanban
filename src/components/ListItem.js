@@ -1,8 +1,13 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Item = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   margin: 1rem 0.8rem;
   padding: 0.8rem 0.4rem;
   border-radius: 6px;
@@ -11,7 +16,7 @@ const Item = styled.div`
   background-color: ${props => (props.isDragging ? "#C7D2FE" : "white")};
 `;
 
-function ListItem({ task, index }) {
+function ListItem({ task, index, deleteTask, columnId }) {
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -21,7 +26,15 @@ function ListItem({ task, index }) {
           {...provided.dragHandleProps}
           isDragging={snapshot.isDragging}
         >
-          {task.content}
+          <div style={{ maxWidth: "70%", wordWrap: "break-word" }}>
+            {task.content}
+          </div>
+          <div>
+            <DeleteIcon
+              style={{ fill: "red", cursor: "initial" }}
+              onClick={() => deleteTask(task.id, columnId)}
+            ></DeleteIcon>
+          </div>
         </Item>
       )}
     </Draggable>
