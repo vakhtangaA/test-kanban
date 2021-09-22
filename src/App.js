@@ -38,10 +38,12 @@ const Footer = styled.footer`
   color: white;
   height: 70px;
   background: #1f2937;
-  position: absolute;
+  ${"" /* position: absolute; */}
   bottom: 0;
   left: 0;
   right: 0;
+
+  position: fixed;
 `;
 
 function App() {
