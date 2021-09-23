@@ -7,7 +7,10 @@ import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 
 const ListDiv = styled.div`
-  background-color: #f8f8f9;
+  background-color: ${props =>
+    props.colorMode === "light" ? "#f8f8f9" : "#454545"};
+
+  border-radius: 6px;
   max-width: 400px;
   margin: 1rem;
   margin-top: 10rem;
@@ -61,7 +64,9 @@ const ButtonInput = styled.button`
   box-shadow: 0 0 3px grey inset;
   margin: 10px;
   margin-top: 3px;
-  background-color: white;
+  background-color: ${props =>
+    props.colorMode === "light" ? "white" : "#454545"};
+
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
@@ -69,7 +74,7 @@ const ButtonInput = styled.button`
   cursor: pointer;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #334155;
+  color: ${props => (props.colorMode === "light" ? "#334155" : "white")};
 `;
 
 const DivModal = styled.div`
@@ -78,7 +83,6 @@ const DivModal = styled.div`
   height: 80px;
   left: calc(50% - 105px);
   top: calc(50% - 40px);
-  background: grey;
   & h3: {
     color: red;
   }
@@ -106,7 +110,7 @@ const MdlButton = styled.button`
   color: #1c5a7c;
 `;
 
-function ModalInput({ handleTaskSave, columnId }) {
+function ModalInput({ handleTaskSave, columnId, colorMode }) {
   const [open, setShow] = useState(false);
   const [task, setTask] = useState("");
 
@@ -127,7 +131,9 @@ function ModalInput({ handleTaskSave, columnId }) {
 
   return (
     <>
-      <ButtonInput onClick={handleShow}>+</ButtonInput>
+      <ButtonInput onClick={handleShow} colorMode={colorMode}>
+        +
+      </ButtonInput>
       <Modal
         open={open}
         onClose={handleClose}
@@ -151,7 +157,7 @@ function ModalInput({ handleTaskSave, columnId }) {
   );
 }
 
-function Column({ column, tasks, handleTaskSave, deleteTask }) {
+function Column({ column, tasks, handleTaskSave, deleteTask, colorMode }) {
   const [isEditMode, setEditMode] = useState(false);
   const [columnTitle, setColumnTitle] = useState(column.title);
 
@@ -172,7 +178,7 @@ function Column({ column, tasks, handleTaskSave, deleteTask }) {
   };
 
   return (
-    <ListDiv>
+    <ListDiv colorMode={colorMode}>
       <Droppable droppableId={column.id}>
         {(provided, snapshot) => (
           <>
@@ -212,6 +218,7 @@ function Column({ column, tasks, handleTaskSave, deleteTask }) {
               {...provided.droppableProps}
               ref={provided.innerRef}
               isDraggingOver={snapshot.isDraggingOver}
+              colorMode={colorMode}
             >
               {tasks.map((task, index) => (
                 <div style={{ maxWidth: "100%" }} key={task.id}>
@@ -220,6 +227,7 @@ function Column({ column, tasks, handleTaskSave, deleteTask }) {
                     index={index}
                     deleteTask={deleteTask}
                     columnId={column.id}
+                    colorMode={colorMode}
                   ></Task>
                 </div>
               ))}
@@ -228,6 +236,7 @@ function Column({ column, tasks, handleTaskSave, deleteTask }) {
             <ModalInput
               columnId={column.id}
               handleTaskSave={handleTaskSave}
+              colorMode={colorMode}
             ></ModalInput>
           </>
         )}

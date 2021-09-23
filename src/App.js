@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
+import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import styled from "styled-components";
 
 import initialData from "./initial-data";
 import Column from "./components/Column";
 
 const Container = styled.div`
+  min-height: calc(100vh - 50px);
   display: flex;
   flex: 2;
   justify-content: space-around;
@@ -18,6 +20,7 @@ const Container = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     align-items: center;
+    height: 100%;
   }
 `;
 
@@ -27,27 +30,20 @@ const Header = styled.header`
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
-`;
-
-const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3rem;
-  color: white;
-  height: 70px;
-  background: #1f2937;
-  ${"" /* position: absolute; */}
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  position: fixed;
+  justify-content: space-around;
 `;
 
 function App() {
   const [state, setState] = useState(initialData);
+  const [colorMode, setColorMode] = useState("light");
+
+  const handleThemeChange = () => {
+    if (colorMode === "light") {
+      setColorMode("dark");
+    } else if (colorMode === "dark") {
+      setColorMode("light");
+    }
+  };
 
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
@@ -154,8 +150,28 @@ function App() {
     <DragDropContext onDragEnd={onDragEnd}>
       <Header>
         <h2>Sweeft-kanban</h2>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <SettingsBrightnessIcon
+            onClick={handleThemeChange}
+            style={{ marginRight: ".5rem", cursor: "pointer" }}
+          />
+          {colorMode === "light" ? <span>dark</span> : <span>light</span>}
+        </div>
       </Header>
-      <Container>
+      <Container
+        style={
+          colorMode === "dark"
+            ? { background: "#292929" }
+            : colorMode === "light"
+            ? { background: "white" }
+            : ""
+        }
+      >
         {state.columnOrder.map(columnId => {
           const column = state.columns[columnId];
           const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
@@ -167,11 +183,11 @@ function App() {
               tasks={tasks}
               handleTaskSave={handleTaskSave}
               deleteTask={deleteTask}
+              colorMode={colorMode}
             />
           );
         })}
       </Container>
-      <Footer>2021</Footer>
     </DragDropContext>
   );
 }

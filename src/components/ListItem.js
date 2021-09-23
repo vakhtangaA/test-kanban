@@ -4,6 +4,8 @@ import styled from "styled-components";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Item = styled.div`
+  color: ${props => (props.colorMode === "light" ? "#2B3744" : "white")};
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,11 +14,17 @@ const Item = styled.div`
   padding: 0.8rem 0.4rem;
   border-radius: 6px;
   font-weight: 600;
-  box-shadow: 3px 3px 5px #d3d3d3;
-  background-color: ${props => (props.isDragging ? "#C7D2FE" : "white")};
+  box-shadow: ${props =>
+    props.colorMode === "light" ? "3px 3px 5px #d3d3d3" : "3px 3px 5px black"};
+  background-color: ${props =>
+    props.isDragging
+      ? "#C7D2FE"
+      : props.colorMode === "light"
+      ? "white"
+      : "#363636"};
 `;
 
-function ListItem({ task, index, deleteTask, columnId }) {
+function ListItem({ task, index, deleteTask, columnId, colorMode }) {
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -25,6 +33,7 @@ function ListItem({ task, index, deleteTask, columnId }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           isDragging={snapshot.isDragging}
+          colorMode={colorMode}
         >
           <div style={{ maxWidth: "70%", wordWrap: "break-word" }}>
             {task.content}
